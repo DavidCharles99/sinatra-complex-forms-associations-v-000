@@ -6,8 +6,9 @@ class OwnersController < ApplicationController
   end
 
   get '/owners/new' do
-    erb :'/owners/new'
-  end
+  @pets = Pet.all
+  erb :'/owners/new'
+end
 
   post '/owners' do
     binding.pry
