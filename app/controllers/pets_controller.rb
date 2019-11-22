@@ -17,13 +17,18 @@ class PetsController < ApplicationController
     end
 
     @pet.save
-    
+
     redirect to "pets/#{@pet.id}"
   end
 
   get '/pets/:id' do
     @pet = Pet.find(params[:id])
     erb :'/pets/show'
+  end
+
+  get '/pets/:id/edit' do
+    @pet = Pet.find(params[:id])
+    erb :'/pets/edit'
   end
 
   patch '/pets/:id' do
